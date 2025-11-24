@@ -15,7 +15,7 @@ MRSQLGen relies on accurate hallucination-type retrieval from the HKB to select 
 **User question:**
 “For each customer, compute the total amount they spent on items priced above 100.”
 
-**LLM-generated SQL (contains a real hallucination):**
+**LLM-generated Original Query (contains a real hallucination):**
 
 ```sql
 Q: 
@@ -39,7 +39,7 @@ However, the JOIN structure is correct in this example—only the missing price 
 
 > “Compute the total spending per customer by allowing customer and order records to match more broadly, while still calculating the same total amount spent on items priced above 100.”
 
-The auxiliary LLM then generates:
+The LLM then generate metamorphic query:
 
 ```sql
 Q1:
@@ -65,7 +65,7 @@ Even when MRSQLGen retrieves the correct hallucination type and selects the appr
 **User question:**
  “List all cities with more than 1,000 residents.”
 
-**LLM-generated SQL (correct):**
+**LLM-generated Original Query (correct):**
 
 ```sql
 Q:
@@ -80,7 +80,7 @@ MRSQLGen correctly identifies a potential **C1: Operator Misuse** risk and selec
 
 > “Show all cities whose population exceeds 5,000.”
 
-**LLM-generated SQL (hallucinated):**
+The LLM then generate metamorphic query (hallucinated) :
 
 ```sql
 Q1:
