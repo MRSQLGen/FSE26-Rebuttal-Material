@@ -2,7 +2,7 @@
 
 ## HKB Construction and Statistics
 
-This section introduces the construction and scale of HKB. The construction of the HKB is grounded in our human-annotated hallucination corpus (available in our GitHub repository [EmpiricalStudyResult](https://github.com/MRSQLGen/MRSQLGen/blob/main/EmpiricalStudyResults/HallucinationTaxonomy_Intent-violatingHallucination.jsonl)), including question, correct query, predicted query by llms,  hallucination types. To ensure consistent comparison and retrieval, we standardize (detailed process in Section 5.2) the prompt x and query q, then we obtain the processed and structured HKB cases, with their scale shown below.
+This section introduces the construction and scale of HKB. The construction of the HKB is grounded in our human-annotated hallucination corpus (available in our GitHub repository [EmpiricalStudyResult](https://github.com/MRSQLGen/MRSQLGen/blob/main/EmpiricalStudyResults/HallucinationTaxonomy_Intent-violatingHallucination.jsonl)), including question, correct query, predicted query by llms,  hallucination types.  To ensure consistent comparison and retrieval, we standardize (detailed process in Section 5.2) the prompt x and query q, then we obtain the processed and structured HKB cases, with their scale shown below.
 
 * Number of cases: 3,968 annotated cases , half of Spider dataset
 * Storage space:  4709KB
@@ -28,7 +28,7 @@ This section introduces the construction and scale of HKB. The construction of t
 }
 ```
 
-* Hallucination types:  involve ten hallucination types as follows.
+* Hallucination types: we cover ten intent-violating hallucination types. Detailed examples and explanations can be found in the  [GitHub repository](https://github.com/MRSQLGen/FSE26-Rebuttal-Material/blob/main/Details%20of%20Intent-Violating%20Hallucination%20Types%20in%20LLM-Generated%20SQL.md) and in Section 4.2 of the paper.
   * C1: Operator Misuse
   * C2: Limit Error
   * C3: Join Logic Hallucination
@@ -111,7 +111,7 @@ prompt = (
     f"Do not include any explanations in your response. Just return the {n} equivalent questions, each separated by a newline.")
 ```
 
-For **QMR-4**, transformation does not involve rewriting the NL question.  Instead, the LLM is asked to generate a corrected SQL query directly and self-verify whether the generated SQL introduces the targeted hallucination type.
+For **QMR-4**, transformation does not involve rewriting the NL question.  Instead, the LLM is asked to generate a corrected SQL query directly and self-verify whether the generated SQL introduces the targeted hallucination type. The corresponding prompt template is shown below:
 
 ``` python
 metamorphic_question = f"{self.question}\n" + \  
