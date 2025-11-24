@@ -2,7 +2,7 @@
 
 We evaluate two LLM-as-a-Judge settings: **LAJ-Self**, where the model evaluates its own outputs, and **LAJ-G5**, which uses a stronger external judge GPT-5.1.  The experimental setup is the same as in Section 7.1.4 of the paper, with the addition of a stronger judge model, GPT-5.1.The results are listed as follows.
 
-![](https://raw.githubusercontent.com/Jasper0209/IMAGES/main/img/Supplementary%20Experiments%20for%20LLM-as-a-Judge.png)
+![table3.png](attachments/table3.png)
 
 Across all models and both datasets, using GPT-5.1 as an external judge consistently improves the F1 of LLM-as-a-judge: On Spider (F1), LAJ-G5 outperforms LAJ-Self for every model. For example, with GPT-4o the F1 rises from 0.123 → 0.487, and with GPT-4o-mini from 0.275 → 0.470. On BIRD (F1), the same trend holds: GPT-4o improves from 0.446 → 0.518, and CodeLlama from 0.254 → 0.486. Averaged over all five models, LAJ-G5 brings an absolute F1 gain of roughly 0.17 on Spider and 0.20 on BIRD compared with LAJ-Self. This improvement mainly comes from much higher recall (e.g., for CodeLlama on BIRD, recall increases from 0.220 → 0.791), while precision can slightly increase or decrease depending on the model.
 
