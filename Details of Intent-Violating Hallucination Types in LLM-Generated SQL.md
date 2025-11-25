@@ -1,3 +1,5 @@
+# **Details of Intent-Violating Hallucination Types in LLM-Generated SQL**
+
 ### **C1: Operator Misuse (4.9%)**
 
 This type of hallucination refers to the incorrect use of arithmetic, comparison, or logical operators in the generated SQL query, leading to query logic that deviates from the user’s original intent. The hallucination typically stems from the model’s misunderstanding of comparative or quantitative language expressions such as “more than,” “not in,” or “between.” For example, as shown in Figure 1, the model misinterprets the comparative semantics of “reach 80” and incorrectly generates the equality operator (`= 80`) instead of the intended threshold condition (`≥ 80`), resulting in a narrowed and intent-violating query.
